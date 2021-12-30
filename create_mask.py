@@ -17,7 +17,7 @@ class Mask():
         self.mask = np.zeros(self.image.shape)
         self.mask_dup = self.mask.copy()
 
-        self.brush_size = 3
+        self.brush_size = 20
         self.draw_mode = False
 
         self.window_name = "Select mask boundaries. s: save, r: redo, q: quit"
@@ -68,11 +68,12 @@ class Mask():
         cv.imshow("press any key to save mask.", self.mask)
         cv.waitKey(0)
 
-        mask_path = path.join(path.dirname(self.image_path), 'mask.png')
+        mask_path = path.join(path.dirname(self.image_path), 'mask.jpg')
         cv.imwrite(mask_path, self.mask)
 
         cv.destroyAllWindows()
 
+        return mask_path
 
 
 if __name__ == '__main__':

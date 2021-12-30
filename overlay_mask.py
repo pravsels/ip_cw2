@@ -95,11 +95,12 @@ class MaskOverlay():
         # cv.imshow("press any key to save mask.", self.mask)
         # cv.waitKey(0)
 
-        mask_overlayed_path = path.join(path.dirname(self.image_path), 'mask_overlayed.png')
+        mask_overlayed_path = path.join(path.dirname(self.image_path), 'mask_overlayed.jpg')
         cv.imwrite(mask_overlayed_path, self.mask)
 
         cv.destroyAllWindows()
 
+        return self.x - self.x0, self.y - self.y0, mask_overlayed_path
 
 
 if __name__ == '__main__':
